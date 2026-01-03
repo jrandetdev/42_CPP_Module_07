@@ -1,6 +1,7 @@
 #include "whatever.hpp"
 #include <iostream>
 
+// main that I coded
 int main()
 {
 
@@ -24,6 +25,10 @@ int main()
 	std::cout << ::max<char>(48, 49) << std::endl; // here I explicitely ask the compiler to treat the input as a char
 	std::cout << ::max('a', 'b') << std::endl;
 	std::cout << ::max(42.1f, 43.1f) << std::endl;
+	//std::cout << ::max(5.1, 3) << std::endl; this wont work. Because we dont use
+	//the angle brackets to specify the type, the compiler will look for something that takes int and double
+	// type comversion is not automatically done from int to double, its only done when 
+	// resolving function overloads not when performing template argument deduction
 
 	std::cout << "\ntesting min" << std::endl;
 	std::cout << ::min(5, 2) << std::endl;
@@ -31,3 +36,21 @@ int main()
 	std::cout << ::min<char>('a', 'b') << std::endl;
 	std::cout << ::min(42.1f, 43.1f) << std::endl;
 }
+
+// main given by the program
+// int
+// main( void ) {
+// 	int a = 2; 
+// 	int b = 3;
+// 	::swap( a, b );
+// 	std::cout << "a = " << a << ", b = " << b << std::endl;
+// 	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
+// 	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
+// 	std::string c = "chaine1";
+// 	std::string d = "chaine2";
+// 	::swap(c, d);
+// 	std::cout << "c = " << c << ", d = " << d << std::endl;
+// 	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
+// 	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
+// 	return 0;
+// }

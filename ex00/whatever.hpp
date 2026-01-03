@@ -4,8 +4,9 @@
 # include <iostream>
 
 //careful since it does not return anything, you need to work witht the values directly. (references)
-template <typename T>
-void swap(T &x, T &y)
+template <typename T> // This is the template parameter,
+// delcaring T as a template parameter which will then be replaced at compile time
+void swap(T &x, T &y) // This is the function template definition
 {
 	T temp;
 	temp = x;
