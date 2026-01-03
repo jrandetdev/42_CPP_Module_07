@@ -21,12 +21,13 @@ int main()
 	std::cout << "testing max" << std::endl;
 	std::cout << ::max(5, 2) << std::endl;
 	std::cout << ::max(2, 2) << std::endl;
+	std::cout << ::max<char>(48, 49) << std::endl; // here I explicitely ask the compiler to treat the input as a char
 	std::cout << ::max('a', 'b') << std::endl;
 	std::cout << ::max(42.1f, 43.1f) << std::endl;
 
 	std::cout << "\ntesting min" << std::endl;
 	std::cout << ::min(5, 2) << std::endl;
 	std::cout << ::min(2, 2) << std::endl;
-	std::cout << ::min('a', 'b') << std::endl;
+	std::cout << ::min<char>('a', 'b') << std::endl;
 	std::cout << ::min(42.1f, 43.1f) << std::endl;
 }

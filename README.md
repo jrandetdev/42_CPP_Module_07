@@ -36,6 +36,10 @@ int main()
 ```
 
 internally, the compiler will generate int myMax(int x, inty y) or char myMax(char x, char y) according to the type called.
+- At Compile Time: The compiler sees you calling mymax(5, 10).
+- The Realization: It says, "Oh, the user wants a version of mymax where T is an int."
+- The Generation: It literally generates a hidden function in the background where every T is replaced by int.
+
 
 Templates can be defined using the template keyword (used to define that the given entity is a template) and the typename keyword used to define template parameters which ar enothing btu types that will be provided when an instance is created. typename can be replaced with class at any time.
 
@@ -44,6 +48,9 @@ The above synthax rules can be used for three components:
 - class templates
 - Variable templates 
 
+
+Instead of writing the same logic over and over for int, double, and long, you write a formula once and let the compiler "copy-paste" the specific versions for you.
+
 ---
 
 # ex00
@@ -51,3 +58,4 @@ The above synthax rules can be used for three components:
 We need to implement three function templates
 
 swap, min, max
+
