@@ -7,25 +7,13 @@
 template <typename T>
 void iter(const T *arr, size_t N, void (*funcPtr)(const T &arg))
 {
-	if (arr == NULL)
-	{
-		std::cerr << "Error: array cannot be null" << std::endl;
-		return ;
-	}
 	for (size_t i = 0; i < N; ++i)
-	{
 		funcPtr(arr[i]);
-	}
 }
 
 template <typename T>
 void iter(T *arr, size_t N, void (*funcPtr)(T &arg))
 {
-	if (arr == NULL)
-	{
-		std::cerr << "Error: array cannot be null" << std::endl;
-		return ;
-	}
 	for (size_t i = 0; i < N; ++i)
 		funcPtr(arr[i]);
 }
