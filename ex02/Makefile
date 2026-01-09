@@ -1,4 +1,4 @@
-NAME		=	template
+NAME		=	array
 DIR_SRC		=	./
 DIR_BUILD	=	./build
 CXX			=	c++

@@ -1,6 +1,8 @@
 #include "whatever.hpp"
 #include <iostream>
 
+int g_global;
+
 // main that I coded
 int main()
 {

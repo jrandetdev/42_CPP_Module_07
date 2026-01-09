@@ -85,3 +85,71 @@ Because it is specified that we need to only accept ONE TYPE, we can only have o
 ```
 
 if we define x with template type T and y with template type U, the compiler iwll happily use max(int, double).
+
+---
+
+## ex02
+
+Just like we can have function templates, we can have class templates allowing member functions to have members that use Templates as types
+
+for example 
+
+```cpp 
+Class car
+{
+    Car();
+    Car(const Car &other);
+    Car& operator=(const Car &other);
+    ~Car()
+}
+```
+
+here the type of the class is Car.
+
+```cpp
+template <typename T>
+Class Car
+{
+    Car();
+    Car(const Car &other);
+    Car& operator=(const Car &other);
+    ~Car()
+}
+
+template <typename T>
+Car<T>::Car() {}
+
+template <typename T>
+Car<T>::Car(const Car<T>& other) {}
+etc.
+```
+
+In this excercise, we define a class template Array, and this Array container could contain doubles or int
+according to what we send to it with 
+
+```cpp
+Array<int> intArray();
+Array<double> doubleArray();
+```
+
+it would replace this piece of code:
+
+```cpp
+template <typename T>
+Array<T>::Array(unsigned int n) : array(new T[n]()), size(n)
+{
+	// a constructor does not return anything, maybe thats the first step
+	std::cout << "constructor called with n" << std::endl;
+	std::cout << this->array << std::endl;
+}
+```
+
+it sees the template definition, and it replaces every occurence of T with int. 
+with this one:
+
+```cpp
+Array<int>::Array(unsigned int n) : array(new int[n]), size(n)
+{
+    ...
+}
+```
