@@ -25,13 +25,10 @@ template <typename T>
 Array<T>::Array(const Array<T>& other)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	if (this != &other)
-	{
-		this->array = new T[other.sz]();
-		for (int i = 0; i < other.sz; ++i)				// create a new array at a separate memory location
-			this->array[i] = other.array[i];	// Copy the data from the previous array to the new one. 
-		this->sz = other.sz;				// other.sz value will be copied in a new sz variable
-	}
+	this->array = new T[other.sz]();
+	for (int i = 0; i < other.sz; ++i)				// create a new array at a separate memory location
+		this->array[i] = other.array[i];	// Copy the data from the previous array to the new one. 
+	this->sz = other.sz;				// other.sz value will be copied in a new sz variable
 	// does not return *this because this is a copy constructor 
 }
 
@@ -63,10 +60,15 @@ template <typename T>
 T& Array<T>::operator[](int i)
 {
 	if (i < 0 || i >= this->sz)
-	{
 		throw std::out_of_range("Index i is out of range.");
-		exit(EXIT_FAILURE);
-	}
+	return this->array[i];
+}
+
+template <typename T>
+const T& Array<T>::operator[](int i) const
+{
+	if (i < 0 || i >= this->sz)
+		throw std::out_of_range("Index i is out of range.");
 	return this->array[i];
 }
 
@@ -77,10 +79,10 @@ int Array<T>::size() const
 }
 
 template <typename T>
-void	Array<T>::printArrayElements()
+void	Array<T>::printArrayElements() const
 {
 	for (int i = 0; i < sz; ++i)
-		std::cout << "array[" << i << "] is worth: " << array[i] << std::endl;
+		std::cout << "array[" << i << "] is worth: " << this->array[i] << std::endl;
 }
 
 template <typename T>
@@ -88,5 +90,5 @@ Array<T>::~Array()
 {
 	if (this->array)
 		delete[] this->array;
-	std::cout << RED << "Destructor called" << '\n';
+	std::cout << RED << "Destructor called" << RESET << '\n';
 }

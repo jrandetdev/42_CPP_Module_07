@@ -5,6 +5,16 @@
 #include <cstdlib>
 #include "Dummy.hpp"
 
+void	constArrayTest()
+{
+	const Array<int> constArray(3);
+	std::cout << "size is worth" << constArray.size() << std::endl;
+	constArray.printArrayElements();
+	// constArray[0] = 1; its normal this does not work because you cannot modify a const value.
+	int x = constArray[0]; // this works because we are reading only. 
+	std::cout << "x is worth " << x << std::endl;
+}
+
 void	classArrayTest()
 {
 	Array<Dummy> dummyArray(2);
@@ -170,6 +180,28 @@ int main()
 		try
 		{
 			classArrayTest();
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+	}
+	{
+		std::cout << "\nTest 5 array with a class" << '\n';
+		try
+		{
+			classArrayTest();
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+	}
+	{
+		std::cout << "\nTest 6 const array to test const" << '\n';
+		try
+		{
+			constArrayTest();
 		}
 		catch(const std::exception& e)
 		{

@@ -25,8 +25,9 @@ class Array
 		~Array();
 		T& operator[](int i);		// careful you had put Array<T>& operator[](int i) but we are retuyrning the dereferencing so the value wihtin 
 									// the array and not a reference to the class!
+		const T& operator[](int i) const;
 		int size() const;
-		void	printArrayElements();
+		void	printArrayElements() const;
 };
 
 
